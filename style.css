@@ -1,0 +1,801 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(94, 124, 169);
+}
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(58, 84, 114);
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.navbar .left a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.navbar .search{
+    float: left;
+    margin: auto;
+    left: 50%;  /* top dan left bekerja jika element diberikan property position*/
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+}
+.search input{
+    width: 330px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(88, 210, 255, 0);
+    padding-left: 4px;
+    text-align: center;
+    font-size: 19px;
+    transition: 0.4s ease-in-out;
+}
+
+.search input:focus{
+    outline: none ;
+    border: 2px solid rgb(88, 211, 255);
+}
+
+.navbar ul{
+    list-style-type: none;
+    float: right;
+    margin: 0;
+}
+.navbar li{
+    float: left;
+    margin-right: 10px;
+}
+
+.navbar li a{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.navbar li a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+.navbar a.active{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.zoom{
+    animation: animatezoom 1s ease-in-out;
+}
+
+@keyframes animatezoom {
+    0% {transform: scale(0)}
+    100% {transform: scale(1)}
+}
+
+.mod-log{
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.mod-log .card{
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; 
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.mod-log h1{
+    font-size: 40px;
+    color: #fff;
+    -webkit-text-stroke: 1px rgb(55, 85, 162);
+    -moz-text-stroke: 1px rgb(55, 85, 162);
+    -o-text-stroke: 1px rgb(55, 85, 162);
+    text-shadow: 1px 3px 5px rgba(84, 83, 83, 0.289);
+}
+
+.mod-log .card form{
+    margin-top: 20px;
+}
+
+.mod-log .card input[type=email], .mod-log .card input[type=text], .mod-log .card input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.mod-log .card input[type=email]:focus, .mod-log .card input[type=text]:focus , .mod-log .card input[type=password]:focus {
+    outline: none;
+    border:1px solid rgb(88, 211, 255);
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.mod-log .cardbutton {
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+    font-size: 20px;
+    background-color: rgb(76, 112, 153);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.726);
+    margin-bottom: 20px;
+}
+
+.mod-log .card button:hover{
+    cursor: pointer;
+    background-color: rgba(76, 112, 153, 0.527);
+}
+
+
+
+.post-section{
+    margin-top: 50px;
+    height: auto;
+}
+
+.post-section .row{
+    margin: auto;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.post-section .row a{
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.post-section .column {
+    float: left;
+    width: 31.33%;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+
+.post-section .card{
+    margin: auto;
+    height: 250px;
+    width: 95%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.post-section .card .img{
+    height: 70%;
+    overflow-y: hidden;
+    overflow: hidden;
+}
+.post-section .img img{
+    width: 100%;
+    height: auto;
+    object-position: 0px -15px;
+}
+
+.post-section .profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -40px;
+    margin-left: 10px;
+    outline: 3px solid rgb(4, 26, 72);
+}
+
+.post-section .profile img{
+    width: 100%;
+    height: 100%;
+}
+
+.post-section .title{
+    width: 100%;
+    margin-left: 15px;
+    margin-top: -13px;
+}
+.post-section .title h3{
+    color: rgb(35, 41, 90);
+    text-shadow: 2px 2px 5px rgba(128, 128, 128, 0.418);
+}
+
+.post-section .des{
+    width: 100%;
+    height: 15px;
+    margin-left: 15px;
+    overflow-y: hidden;
+    margin-top: -10px;
+}
+
+.post-section .des p{
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    transition: .3s ease-in-out;
+    transform: translateY(15px);
+}
+
+.post-section a .card:hover{
+    transform: translateY(-10px);
+    opacity: .8;
+}
+
+.post-section a .card:hover .des p{
+    transform: translateY(-18px);
+}
+
+
+/* detail page */
+.detail-page{
+    margin-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.detail-page .card{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.detail-page .card .img{
+    overflow-y: hidden;
+}
+.detail-page .img img{
+    width: 100%;
+    height: 500px;
+    object-position: 0px -90px;
+    object-fit: cover;
+}
+
+.detail-page .profile{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -90px;
+    margin-left: 15px;
+    outline: 3px solid rgb(4, 26, 72);
+    background-color: #000;
+}
+
+.detail-page .profile img{
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+
+.detail-page .profile .prof-link:hover img{
+    opacity: .5;
+}
+
+.detail-page .title{
+    width: 100%;
+    margin-left: 30px;
+    margin-top: -13px;
+}
+.detail-page .title h3{
+    color: rgb(35, 41, 90);
+    text-shadow: 2px 2px 5px rgba(128, 128, 128, 0.418);
+    font-size: 35px;
+}
+
+.detail-page .des{
+    max-width: 100%;
+    height: auto;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+
+.detail-page .des pre{
+    max-width: 97%;
+    font-size: 23px;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;   
+    color: rgb(100, 100, 100);
+    transition: .3s ease-in-out;
+    transform: translateY(15px);
+}
+
+.detail-page #hr1{
+    margin-top: 200px;
+}
+
+.detail-page .comment-section{
+    padding-left: 30px;
+    width: 100%;
+}
+
+.comment-section h1{
+    color: #1c06c2;
+}
+
+.comment-section textarea{
+    width: 85%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: rgb(63, 108, 255);
+    font-size: 17px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(28, 26, 26);
+    resize: none;
+}
+
+.comment-section input[type=submit]{
+    margin-left: 10px;
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    border-color: rgb(25, 96, 189);
+    background-color: rgb(25, 96, 189);
+    color: #fff;
+    transition: .3s;
+}
+
+.comment-section input[type=submit]:hover{
+    background-color: rgb(233, 230, 242);
+    color: rgb(25, 96, 189);
+    cursor: pointer;
+    border-color: rgb(25, 96, 189);
+}
+
+.comment-section .comment{
+    margin-top: 20px;
+}
+
+.comment .profile-pict{
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    outline: 3px solid rgb(4, 26, 72);
+}
+
+.comment .profile-pict a img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment .username{
+    margin-left: 60px;
+    margin-top: -24px;
+    
+}
+
+.comment .username a{
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(22, 22, 22);
+    font-weight: 900;
+}
+.comment .username a:hover{
+    color: #719ECE;
+}
+.comment .komentar{
+    max-width: 100%;
+    height: auto;
+}
+
+.komentar pre{
+    max-width: 90%;
+    font-size: 15px;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;   
+}
+
+.komentar hr{
+    
+}
+
+.addPage{
+    margin-top: 70px;
+}
+.addPage .card{
+    margin: auto;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-shadow: 2px 2px 10px rgb(60, 57, 57);
+    margin-bottom: 30px;
+}
+
+.addPage input, .addPage textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-size: 15px;
+    appearance: auto;
+}
+
+.addPage input:focus, .addPage textarea:focus{
+    outline: none;
+    border:1px solid rgb(88, 211, 255);
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.addPage input[type=file]{
+    display: none;
+}
+.addPage label{
+    background-color:rgb(58, 84, 114);
+    box-shadow: 2px 2px 6px rgb(60, 57, 57);
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 18px;
+    cursor: pointer;
+    margin: auto;
+    transition: .2s;
+}
+
+.addPage label:hover{
+    opacity: .9;
+}
+
+.addPage img{
+    width: 30%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    max-height: 500px;
+    object-fit: cover;
+    box-shadow: 2px 2px 10px rgb(60, 57, 57);
+}
+
+.addPage button{
+    margin-top: 20px;
+    width: 70%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-color: #719ece00;
+    background-color:rgb(58, 84, 114);
+    box-shadow: 2px 2px 6px rgba(60, 57, 57, 0.493);
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    transition: .2s;
+}
+
+
+.addPage button:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
+
+.addPage .delete:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
+
+/* floating button */
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:rgb(58, 84, 114);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 6px rgb(60, 57, 57);
+    text-decoration: none;
+    font-size: 50px;
+    transition: .1s;
+}
+.float:hover{
+    background-color:rgba(58, 84, 114, 0.795);
+    box-shadow: 2px 2px 10px rgb(60, 57, 57);
+    color: rgba(255, 255, 255, 0.527);
+}
+
+.profile-page{
+    height: auto;
+    margin-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.profile-page .cards{
+    margin: auto;
+    height: 100%;
+    width: 86%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.profile-page .cards .header{
+    width: 100%;
+    margin-top: 60px;
+}
+
+.profile-page .cards .header .prof-button{
+    width: 100%;
+}
+
+.profile-page .cards .header .prof-button ul{
+    list-style-type: none;
+    float: right;
+    width: 100%;
+}
+
+.profile-page .cards .header .prof-button li{
+    float: left;
+    margin-right: 20px;
+}
+
+.profile-page .cards .header .edit-profile{
+    text-decoration: none;
+    border-radius: 20px;
+    color: #fff;
+    background-color: rgb(21, 93, 247);
+    padding: 10px;
+}
+
+.profile-page .cards .header .edit-profile:hover{
+    color: rgb(21, 93, 247);
+    background-color: rgba(21, 93, 247, 0.59);
+}
+
+.profile-page .cards .header .report-profile{
+    text-decoration: none;
+    border-radius: 20px;
+    color: #fff;
+    background-color: rgb(21, 93, 247);
+    padding: 10px;
+}
+
+.profile-page .cards .header .report-profile:hover{
+    color: rgb(21, 93, 247);
+    background-color: rgba(21, 93, 247, 0.59);
+}
+.profile-page .cards .header .prof{
+    width: 100%;
+}
+.profile-page .cards .header .profile{
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    outline: 3px solid rgb(4, 26, 72);
+}
+
+.profile-page .cards .header .profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-page .cards .header .username{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-page .cards .header .username h1{
+    font-size: 44px;
+    text-align: center;
+}
+
+.profile-page .row{
+    margin: auto;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.profile-page .row a{
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.profile-page .column {
+    float: left;
+    width: 31.33%;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+
+.profile-page .card{
+    margin: auto;
+    height: 250px;
+    width: 95%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+    position: relative;
+}
+
+.profile-page  .menu{
+    position: absolute;
+    z-index: 100;
+    margin-top: 0px;
+    margin-left: 300px;
+    background-color: #719ece00;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.profile-page .menu button{
+    background-color: #719ece00;
+    border-color: #719ece00;
+}
+
+.profile-page  .menu button:hover img{
+    cursor: pointer;
+    filter: brightness(0) invert(0);
+}
+
+.profile-page  .menu img{
+    transition: .5s;
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.profile-page .card .img{
+    height: 70%;
+    overflow-y: hidden;
+    overflow: hidden;
+}
+.profile-page .img img{
+    width: 100%;
+    height: auto;
+    object-position: 0px -15px;
+}
+
+.profile-page .profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -40px;
+    margin-left: 10px;
+    outline: 3px solid rgb(4, 26, 72);
+}
+
+.profile-page .profile img{
+    width: 100%;
+    height: 100%;
+}
+
+.profile-page .title{
+    width: 100%;
+    margin-left: 15px;
+    margin-top: -13px;
+}
+.profile-page .title h3{
+    color: rgb(35, 41, 90);
+    text-shadow: 2px 2px 5px rgba(128, 128, 128, 0.418);
+}
+
+.profile-page .des{
+    width: 100%;
+    height: 15px;
+    margin-left: 15px;
+    overflow-y: hidden;
+    margin-top: -10px;
+}
+
+.profile-page .des p{
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    transition: .3s ease-in-out;
+    transform: translateY(15px);
+}
+
+.profile-page  .card:hover{
+    opacity: .8;
+}
+
+.profile-page  .card:hover .des p{
+    transform: translateY(-18px);
+}
+
+.card-report{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.card-report .report-title{
+    color: #4292f5;
+}
+
+.card-report .btn-report{
+    width: 150px; 
+    height: 30px; 
+    background-color: #4292f5; 
+    color: #fff; 
+    border: none;
+}
+
+.card-report .btn-report:hover{
+    cursor: pointer;
+}
+
+.card-report table{
+    width: 100%;
+    border-collapse: collapse; 
+}
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #4292f5; 
+	color: white; 
+	font-weight: bold; 
+}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	font-size: 18px;
+}
