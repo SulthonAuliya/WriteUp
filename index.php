@@ -108,7 +108,10 @@ if (!isset($_SESSION['id_account'])){
                 </div>
             </a>
         </div>
-         <?php endforeach; } ?>    
+         <?php endforeach; } else{ ?>
+            
+            <h1>NO POSTS YET!</h1>
+            <?php } ?>
         </div>
         
     </div>
