@@ -85,6 +85,8 @@ if (!isset($_SESSION['id_account'])){
             $post = mysqli_query($db_connection, $query);
 
             $i = 1;
+
+            if (isset($post)){
             foreach ($post as $data) : 
         ?>   
         <div class="column" id="post"> 
@@ -106,7 +108,7 @@ if (!isset($_SESSION['id_account'])){
                 </div>
             </a>
         </div>
-         <?php endforeach ?>    
+         <?php endforeach; } ?>    
         </div>
         
     </div>
