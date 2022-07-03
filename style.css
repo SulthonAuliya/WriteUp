@@ -335,7 +335,7 @@ body{
 }
 
 .detail-page #hr1{
-    margin-top: 200px;
+    margin-top: 20px;
 }
 
 .detail-page .comment-section{
@@ -798,4 +798,11 @@ td, th {
 	padding: 10px; 
 	border: 1px solid #ccc; 
 	font-size: 18px;
+}
+.likes{
+    margin-top: 100px;
+    margin-left: 30px;
+}
+.likes .img{
+    width: 30px;
 }

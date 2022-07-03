@@ -24,7 +24,7 @@ if (!isset($_SESSION['id_account'])){
     <!-- navbar -->
     <div class="navbar">
         <div class="left">
-            <a href="index.php">WriteUp</a>
+            <a href="index.php">WriteUp Sulthon</a>
         </div>
         <div class="search">
             <form >

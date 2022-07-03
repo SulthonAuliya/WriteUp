@@ -14,6 +14,14 @@
 
         $data = mysqli_fetch_assoc($user);
 
+        $query2 = "SELECT id_likes, id_account, COUNT(*) as total FROM likes where id_post = '$_GET[id]'";
+        $likes = mysqli_query($db_connection, $query2);
+        $like = mysqli_fetch_assoc($likes);
+        
+        $query3 = "SELECT id_likes, id_account FROM likes where id_account = '$_SESSION[id_account]'";
+        $liked = mysqli_query($db_connection, $query3);
+        $liker = mysqli_fetch_assoc($liked);
+
         $reader = $data['reader']+1;
         $qUpdateRead = "UPDATE post SET reader = '$reader' WHERE id_account = '$data[id_account]' AND id_post = '$data[id_post]'";
         $read = mysqli_query($db_connection, $qUpdateRead); 
@@ -91,6 +99,33 @@
             </div>
             <div class="des">
                 <pre><?= $data['description']?></pre>
+            </div>
+
+            <div class="likes">
+                <?php if(!isset($_SESSION['login'])) { ?>
+                    <img src="img/like.png" alt="" class="img">
+                <?php }else{ ?>
+                    
+                    
+                    <?php if (isset($liker['id_account']) == $_SESSION['id_account']){ ?>
+
+                        <form action="controller/delete_like.php" method="POST">
+                            <input type="hidden" name="id_post" value="<?= $data['id_post'] ?>">
+                            <input type="hidden" name="id_likes" value="<?= $liker['id_likes'] ?>">
+                            <input type="image" class="img" src="img/likes.png"><p><?= $like['total'] ?></p>
+                        </form>   
+
+                    <?php } else{ ?>
+
+                        <form action="controller/create_like.php" method="POST">
+                            <input type="hidden" name="id_post" value="<?= $data['id_post'] ?>">
+                            <input type="hidden" name="id_account" value="<?= $_SESSION['id_account'] ?>">
+                            <input type="image" class="img" src="img/like.png"><p><?= $like['total'] ?></p>
+                        </form>
+                        
+                    <?php } ?>
+
+                <?php } ?>
             </div>
             <hr id="hr1">
             <div class="comment-section">
